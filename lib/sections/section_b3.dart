@@ -22,7 +22,7 @@ class ProductScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0, // Remove shadow
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black), 
+          icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             // Handle back button action
             Navigator.pop(context);
@@ -31,8 +31,8 @@ class ProductScreen extends StatelessWidget {
         title: Text(
           'Details',
           style: TextStyle(color: Colors.black), // Title text color
-          
         ),
+        centerTitle: true, // Center the app title
         actions: [
           IconButton(
             icon: Icon(Icons.favorite_border, color: Colors.black),
@@ -47,12 +47,14 @@ class ProductScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Product Image
-            Image.asset(
-              'assets/images/arg.png', 
-              width: 200,
-              height: 200,
-              fit: BoxFit.cover,
+            // Product Image (Centered)
+            Center(
+              child: Image.asset(
+                'assets/images/arg.png',
+                width: 200,
+                height: 200,
+                fit: BoxFit.cover,
+              ),
             ),
             SizedBox(height: 10),
 
@@ -131,33 +133,40 @@ class ProductScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
 
-            // Price
-            Text(
-              'Price',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 5),
-            Text(
-              '\$39.99', // Adjust the price as needed
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
-              ),
-            ),
-            SizedBox(height: 20),
-
-            // Add to Cart Button
-            ElevatedButton(
-              onPressed: () {
-                // Handle Add to Cart functionality
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                textStyle: TextStyle(fontSize: 16),
-              ),
-              child: Text('Add to Cart'),
+            // Price and Add to Cart Button in same row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Price',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      '\$39.99',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ],
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle Add to Cart functionality
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    textStyle: TextStyle(fontSize: 16),
+                  ),
+                  child: Text('Add to Cart'),
+                ),
+              ],
             ),
           ],
         ),
