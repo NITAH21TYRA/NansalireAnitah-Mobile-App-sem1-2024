@@ -138,7 +138,7 @@ class ProductScreen extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-              '\$199.99', // Adjust the price as needed
+              '\$39.99', // Adjust the price as needed
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
